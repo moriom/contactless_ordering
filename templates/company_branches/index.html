@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} Company Branch Home {% endblock %}
+{% block content %}
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Company name</th>
+        <th>Branch name</th>
+        <th>Address</th>
+        <th>Is active</th>
+    </tr>
+
+    {% for company_branch in company_branches %}
+ <tr>
+        <td>{{ company_branch["id"] }}</td>
+        <td>{{ company_branch["company name"] }}</td>
+        <td>{{ company_branch["branch name"] }}</td>
+        <td>{{ company_branch["address"] }}</td>
+        <td>{{ company_branch["is active"] }}</td>
+
+        <td>
+            <a href="{{ url_for('edit_company_branch', id = company_branch["id"] ) }}" style="margin-right: 5px;">Edit</a>
+            <form action="/company_branches/{{ cb["id"] }}/delete_company_branch" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

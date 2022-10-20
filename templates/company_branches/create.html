@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %} Creating New Company Branch {% endblock %}
+{% block content %}
+
+<form action="/company_branches" method="POST">
+
+    Company name:<br>
+    <input type="text" name="company name" >
+    <br>
+
+    Branch name:<br>
+    <input type="text" name="branch name" >
+    <br>
+
+    Address:<br>
+    <input type="text" name="address" >
+    <br>
+
+    Is active:<br>
+    <input type="text" name="is active" >
+    <br>
+
+    <pre> <button type="submit"> Submit </button> </pre>
+
+</form>
+{% endblock %}

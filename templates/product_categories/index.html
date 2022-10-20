@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} Product Category Home {% endblock %}
+{% block content %}
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+
+    {% for product_category in product_categories %}
+ <tr>
+        <td>{{ product_category["id"] }}</td>
+        <td>{{ product_category["nane"] }}</td>
+
+        <td>
+            <a href="{{ url_for('edit_product_category', id = product_category["id"] ) }}" style="margin-right: 5px;">Edit</a>
+            <form action="/product_categories/{{ product_category["id"] }}/delete_product_category" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

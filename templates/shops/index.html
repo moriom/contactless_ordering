@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %} Shop Home {% endblock %}
+{% block content %}
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Banner</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Offer</th>
+        <th>Currency</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for shop in shops %}
+ <tr>
+        <td>{{ shop["id"] }}</td>
+
+        <td >
+            <a href=""><img src="{{ url_for('static', filename = 'shops/' + shop['id'] | string +'.jpg')}}"  height="100">
+         </a>
+     </td>
+        <td>{{ shop["title"] }}</td>
+        <td>{{ shop["description"] }}</td>
+        <td>{{ shop["offer"] }}</td>
+        <td>{{ shop["currency"] }}</td>
+        <td>
+            <a href="{{ url_for('edit_shop', id = shop["id"] ) }}" style="margin-right: 5px;">Edit</a>
+            <form action="/shops/{{ shop["id"] }}/delete_shop" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

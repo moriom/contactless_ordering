@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %} Menu {% endblock %}
+{% block content %}
+
+<div class="tiles">
+  <div class="tile">
+    <img src="{{ url_for('static', filename = 'menu/drinks/drinks.jpg' )}}" width="200", height="200">
+    <h3>Drinks</h3>
+      <div class="tile">
+          <img src="{{ url_for('static', filename = 'menu/drinks/coffee.jpg' )}}" width="200", height="200">
+          <h3>Black Coffee</h3>
+      </div>
+  </div>
+
+  <div class="tile">
+    <img src="{{ url_for('static', filename = 'menu/dessert/desserts.jpg' )}}" width="200", height="200">
+    <h3>Desserts</h3>
+  </div>
+
+  <div class="tile">
+    <img src="{{ url_for('static', filename = 'menu/main_course/salmon.jpg' )}}" width="200", height="200">
+    <h3>Main Courses</h3>
+  </div>
+
+  <div class="tile">
+    <img src="{{ url_for('static', filename = 'menu/snacks/snacks.jpg' )}}" width="200", height="200">
+    <h3>Snacks</h3>
+  </div>
+
+</div>
+
+    <div class="container">
+  <div class="row">
+    <div class="col">
+      1 of 2
+    </div>
+    <div class="col">
+      2 of 2
+    </div>
+  </div>
+  <div class="row" style="border: solid red 2px">
+    <div class="col">
+      1 of 3
+    </div>
+    <div class="col">
+      2 of 3
+    </div>
+    <div class="col">
+      3 of 3
+    </div>
+  </div>
+</div>
+
+{% endblock %}

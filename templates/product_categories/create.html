@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %} Creating product categories {% endblock %}
+{% block content %}
+
+<form action="/product_categories" method="POST">
+
+    Name:<br>
+    <input type="text" name="name" >
+    <br>
+
+    <pre> <button type="submit"> Submit </button> </pre>
+
+</form>
+{% endblock %}

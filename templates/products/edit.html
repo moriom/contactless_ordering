@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %} Edit products {% endblock %}
+{% block content %}
+
+<form action="/products/{{ product['id']  }}" method="POST">
+
+    Banner:<br>
+    <input type="text" name="banner" value="{{ product['banner'] }}" >
+    <br>
+
+    Name:<br>
+    <input type="text" name="name" >
+    <br>
+
+    Is_feature:<br>
+    <input type="text" name="is_feature" >
+    <br>
+
+    Priority:<br>
+    <input type="text" name="priority" >
+    <br>
+
+    Price:<br>
+    <input type="text" name="price" >
+    <br>
+
+    Categori_id:<br>
+    <input type="text" name="categori_id" >
+    <br>
+
+     Discount:<br>
+    <input type="text" name="discount" >
+    <br>
+
+    <pre> <button type="submit"> Submit </button> </pre>
+
+</form>
+{% endblock %}

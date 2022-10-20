@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %} Company Home {% endblock %}
+{% block content %}
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Company name</th>
+        <th>Domain name</th>
+        <th>Is active</th>
+    </tr>
+
+    {% for company in companies %}
+ <tr>
+        <td>{{ company["id"] }}</td>
+        <td>{{ company["company name"] }}</td>
+        <td>{{ company["domain name"] }}</td>
+        <td>{{ company["is active"] }}</td>
+
+        <td>
+            <a href="{{ url_for('edit_company', id = company["id"] ) }}" style="margin-right: 5px;">Edit</a>
+            <form action="/companies/{{ company["id"] }}/delete_company" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

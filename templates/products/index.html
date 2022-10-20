@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %} product Home {% endblock %}
+{% block content %}
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Banner</th>
+        <th>Name</th>
+        <th>Is_feature</th>
+        <th>Priority</th>
+        <th>Price</th>
+        <th>Categori_id</th>
+        <th>Discount</th>
+    </tr>
+
+    {% for product in products %}
+ <tr>
+        <td>{{ product["id"] }}</td>
+
+        <td >
+            <a href=""><img src="{{ url_for('static', filename = 'products/' + product['id'] | string +'.jpg')}}"  height="100">
+         </a>
+     </td>
+        <td>{{ product["name"] }}</td>
+        <td>{{ product["is_feature"] }}</td>
+        <td>{{ product["priority"] }}</td>
+        <td>{{ product["price"] }}</td>
+        <td>{{ product["categori_id"] }}</td>
+        <td>{{ product["discount"] }}</td>
+
+        <td>
+            <a href="{{ url_for('edit_products', id = product["id"] ) }}" style="margin-right: 5px;">Edit</a>
+            <form action="/products/{{ product["id"] }}/delete_products" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
